@@ -2,6 +2,8 @@ import React from 'react';
 import {Text,View,TextInput, TouchableOpacity,Alert,KeyboardAvoidingView,StyleSheet,ToastAndroid} from 'react-native';
 import db from '../config';
 import firebase from 'firebase';
+import MyHeader from '../components/MyHeader';
+ 
 
 export default class WriteStoryScreen extends React.Component{
 
@@ -12,7 +14,7 @@ this.state={
     Story:'',
     StoryTitle:''
 }
-}
+} 
 
 submitStory = async ()=>{
 db.collection("Writer").add({
@@ -29,13 +31,10 @@ ToastAndroid.show("Your Story has been submitted", ToastAndroid.SHORT);
         return(
             <KeyboardAvoidingView>
     <View>
-    <Text style={{backgroundColor:'#1bb1b7',
-    textAlign:'center',
-    justifyContent:'center',
-    height:40,
-    fontSize:30,
-    color:'white',
-    fontWeight:'bold'}}>STORY HUB</Text>
+   <View>
+
+       <MyHeader title="STORY HUB" navigation ={this.props.navigation}/>
+        </View>
 
      <View>
      <TextInput style={{height:40,
